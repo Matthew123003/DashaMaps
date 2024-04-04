@@ -2,6 +2,8 @@ package com.github.zipcodewilmington;
 
 //import jdk.nashorn.internal.ir.Node;
 
+import java.util.Objects;
+
 /**
  * @author xtofer
  * @version 1.0.0
@@ -18,17 +20,28 @@ public class DashaMapOne implements HashMapX{
 
     private static class Node{
         String key;
-        String value;
+        Integer value;
         Node next;
 
-        Node(String key, String value){
+        Node(String key, Integer value){
             this.key = key;
             this.value = value;
         }
     }
+
+        private int hash(String key) {
+        return Math.abs(key.hashCode() % SIZE);
+    }
+
+    private String hashFunctionOne(String input) {
+        if (input.length() > 0) {
+            return String.valueOf(Character.toLowerCase(input.charAt(0)));
+        }
+        return null;
+    }
     @Override
-    public void set(String key, String value) {
-        int index = hash(key);
+    public void set(String key, Integer value) {
+        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionOne(key)));
 
         // If the bucket is empty, create a new node
         if (table[index] == null) {
@@ -55,13 +68,10 @@ public class DashaMapOne implements HashMapX{
         }
     }
 
-    private int hash(String key) {
-        return Math.abs(key.hashCode() % SIZE);
-    }
 
     @Override
-    public String delete(String key) {
-        int index = hash(key);
+    public Integer delete(String key) {
+        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionOne(key)));
         Node prev = null;
         Node current = table[index];
 
@@ -81,7 +91,7 @@ public class DashaMapOne implements HashMapX{
     }
 
     @Override
-    public String get(String key) {
+    public Integer get(String key) {
         int index = hash(key);
         Node current = table[index];
 

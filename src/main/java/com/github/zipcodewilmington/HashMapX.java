@@ -7,9 +7,9 @@ package com.github.zipcodewilmington;
  */
 public interface HashMapX {
     // fundamentals
-    void set(String key, String value);
-    String delete(String key);
-    String get(String key);
+    void set(String key, Integer value);
+    Integer delete(String key);
+    Integer get(String key);
     boolean isEmpty();
     long size();
 

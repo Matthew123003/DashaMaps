@@ -2,17 +2,17 @@ package com.github.zipcodewilmington;
 
 public class DashaMapTwo implements HashMapX{
     @Override
-    public void set(String key, String value) {
+    public void set(String key, Integer value) {
 
     }
 
     @Override
-    public String delete(String key) {
+    public Integer delete(String key) {
         return null;
     }
 
     @Override
-    public String get(String key) {
+    public Integer get(String key) {
         return null;
     }
 
