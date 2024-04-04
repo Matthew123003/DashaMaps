@@ -7,12 +7,12 @@ package com.github.zipcodewilmington;
  * @version 1.0.0
  * @date 10/21/19 9:05 AM
  */
-public class DashaMap implements HashMapX{
+public class DashaMapOne implements HashMapX{
 
     private static final int SIZE = 26;
     private Node[] table;
 
-    public DashaMap(){
+    public DashaMapOne(){
         table = new Node[SIZE];
     }
 
