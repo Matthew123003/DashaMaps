@@ -121,13 +121,16 @@ public class DashaMapOne implements HashMapX{
     public boolean bucketSize(String key) {
         int index = hash(key);
         Node current = table[index];
+        //int size = 0;
 
         while (current != null) {
             if (current.key.equals(key)) {
+                //size++;
                 return true;
             }
             current = current.next;
         }
+        //return size;
         return false;
     }
 }
