@@ -18,7 +18,7 @@ public class DashaMapOne implements HashMapX{
         table = new Node[SIZE];
     }
 
-    private static class Node{
+    static class Node{
         String key;
         Integer value;
         Node next;
