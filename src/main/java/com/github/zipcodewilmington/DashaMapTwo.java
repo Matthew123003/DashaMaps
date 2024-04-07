@@ -1,6 +1,13 @@
 package com.github.zipcodewilmington;
 
 public class DashaMapTwo implements HashMapX{
+
+    private String HashFunctionTwo(String input) {
+        if (input.length() > 0) {
+            return String.toLowerCase(String.valueOf(input.charAt(1)));
+        }
+        return null;
+    }
     @Override
     public void set(String key, Integer value) {
 

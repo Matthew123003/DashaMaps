@@ -92,7 +92,7 @@ public class DashaMapOne implements HashMapX{
 
     @Override
     public Integer get(String key) {
-        int index = hash(key);
+        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionOne(key)));
         Node current = table[index];
 
         while (current != null) {
@@ -129,7 +129,7 @@ public class DashaMapOne implements HashMapX{
 
     @Override
     public boolean bucketSize(String key) {
-        int index = hash(key);
+        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionOne(key)));
         Node current = table[index];
         //int size = 0;
 

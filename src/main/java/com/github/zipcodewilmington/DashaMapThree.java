@@ -1,6 +1,14 @@
 package com.github.zipcodewilmington;
 
 public class DashaMapThree implements HashMapX{
+
+    private String HashFunctionThree(String input) {
+        if (input.length() > 1) {
+            return String.toLowerCase(String.valueOf(input.charAt(0)+input.charAt(1)));
+        }
+        return null;
+    }
+
     @Override
     public void set(String key, Integer value) {
 
