@@ -27,9 +27,39 @@ public class DashaMapTwo implements HashMapX{
         }
         return null;
     }
+
+    @Override
+    public void put(String key, Integer value) {
+        String hashString = Objects.requireNonNull(hashFunctionTwo(key));
+        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        // If the bucket is empty, create a new node
+        if (table[index] == null) {
+            table[index] = new DashaMapTwo.Node(key, value);
+            return;
+        }
+
+        // Traverse the linked list to find the key
+        DashaMapTwo.Node current = table[index];
+        while (current != null) {
+            // If the key is found, update its value
+            if (current.key.equals(key)) {
+                current.value = value;
+                return;
+            }
+            // If the key is not found and there are more nodes, move to the next node
+            if (current.next != null) {
+                current = current.next;
+            } else {
+                // If we've reached the end of the linked list, create a new node
+                current.next = new DashaMapTwo.Node(key, value);
+                return;
+            }
+        }
+    }
     @Override
     public void set(String key, Integer value) {
-        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionTwo(key)));
+        String hashString = Objects.requireNonNull(hashFunctionTwo(key));
+        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
 
         // If the bucket is empty, create a new node
         if (table[index] == null) {
@@ -58,7 +88,8 @@ public class DashaMapTwo implements HashMapX{
 
     @Override
     public Integer delete(String key) {
-        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionTwo(key)));
+        String hashString = Objects.requireNonNull(hashFunctionTwo(key));
+        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
         DashaMapTwo.Node prev = null;
         DashaMapTwo.Node current = table[index];
 
@@ -79,7 +110,8 @@ public class DashaMapTwo implements HashMapX{
 
     @Override
     public Integer get(String key) {
-        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionTwo(key)));
+        String hashString = Objects.requireNonNull(hashFunctionTwo(key));
+        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
         DashaMapTwo.Node current = table[index];
 
         while (current != null) {
@@ -116,7 +148,8 @@ public class DashaMapTwo implements HashMapX{
 
     @Override
     public boolean bucketSize(String key) {
-        int index = Integer.parseInt(Objects.requireNonNull(hashFunctionTwo(key)));
+        String hashString = Objects.requireNonNull(hashFunctionTwo(key));
+        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
         DashaMapTwo.Node current = table[index];
         //int size = 0;
 

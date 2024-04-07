@@ -6,6 +6,8 @@ package com.github.zipcodewilmington;
  * @date 10/21/19 9:05 AM
  */
 public interface HashMapX {
+    void put(String key, Integer value);
+
     // fundamentals
     void set(String key, Integer value);
     Integer delete(String key);
