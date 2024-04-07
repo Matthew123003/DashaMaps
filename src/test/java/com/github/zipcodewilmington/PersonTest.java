@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.sample;
+package com.github.zipcodewilmington;
 
 import com.github.zipcodewilmington.sample.Person;
 import com.github.zipcodewilmington.sample.PersonInterface;
@@ -12,7 +12,6 @@ import org.junit.jupiter.params.provider.ValueSource;
  * @version 1.0.0
  * @date 5/17/21 11:02 AM
  */
-@Disabled
 public class PersonTest {
 
     @ParameterizedTest
