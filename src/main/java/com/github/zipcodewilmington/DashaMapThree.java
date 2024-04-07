@@ -30,7 +30,8 @@ public class DashaMapThree implements HashMapX{
     @Override
     public void put(String key, Integer value) {
         String hashString = Objects.requireNonNull(hashFunctionThree(key));
-        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        int index = Math.abs(hashString.hashCode() % SIZE); // Take modulo to ensure index is within bounds
+
 
         // If the bucket is empty, create a new node
         if (table[index] == null) {
@@ -60,7 +61,8 @@ public class DashaMapThree implements HashMapX{
     @Override
     public void set(String key, Integer value) {
         String hashString = Objects.requireNonNull(hashFunctionThree(key));
-        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        int index = Math.abs(hashString.hashCode() % SIZE); // Take modulo to ensure index is within bounds
+
 
         // If the bucket is empty, create a new node
         if (table[index] == null) {
@@ -90,7 +92,8 @@ public class DashaMapThree implements HashMapX{
     @Override
     public Integer delete(String key) {
         String hashString = Objects.requireNonNull(hashFunctionThree(key));
-        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        int index = Math.abs(hashString.hashCode() % SIZE); // Take modulo to ensure index is within bounds
+
         DashaMapThree.Node prev = null;
         DashaMapThree.Node current = table[index];
 
@@ -112,7 +115,8 @@ public class DashaMapThree implements HashMapX{
     @Override
     public Integer get(String key) {
         String hashString = Objects.requireNonNull(hashFunctionThree(key));
-        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        int index = Math.abs(hashString.hashCode() % SIZE); // Take modulo to ensure index is within bounds
+
         DashaMapThree.Node current = table[index];
 
         while (current != null) {
@@ -151,7 +155,8 @@ public class DashaMapThree implements HashMapX{
     @Override
     public boolean bucketSize(String key) {
         String hashString = Objects.requireNonNull(hashFunctionThree(key));
-        int index = hashString.charAt(0) - 'a'; // Convert first character to zero-based index
+        int index = Math.abs(hashString.hashCode() % SIZE); // Take modulo to ensure index is within bounds
+
         DashaMapThree.Node current = table[index];
         //int size = 0;
 

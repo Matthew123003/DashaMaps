@@ -19,4 +19,24 @@ public class DashaMapTest {
 
         Assert.assertFalse(assertMapContains);
     }
+
+    @Test
+    public void mapPutTest2(){
+        DashaMapTwo dm2 = new DashaMapTwo();
+
+        dm2.put("help", 1);
+        boolean assertMapContains = dm2.isEmpty();
+
+        Assert.assertFalse(assertMapContains);
+    }
+
+    @Test
+    public void mapPutTest3(){
+        DashaMapThree dm3 = new DashaMapThree();
+
+        dm3.put("help", 1);
+        boolean assertMapContains = dm3.isEmpty();
+
+        Assert.assertFalse(assertMapContains);
+    }
 }
