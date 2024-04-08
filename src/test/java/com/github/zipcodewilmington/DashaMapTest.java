@@ -3,6 +3,8 @@ package com.github.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 /**
  * @author xtofer
  * @version 1.0.0
@@ -24,7 +26,7 @@ public class DashaMapTest {
     public void mapPutAndEmptyTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.put("help", 1);
+        dm2.put("helper", 1);
         boolean assertMapContains = dm2.isEmpty();
 
         Assert.assertFalse(assertMapContains);
@@ -55,11 +57,11 @@ public class DashaMapTest {
     public void mapSetAndGetTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.set("help", 1);
-        dm2.get("help");
+        dm2.set("helper", 1);
+        dm2.get("helper");
         Integer expected = 1;
 
-        Assert.assertEquals(expected, dm2.get("help"));
+        Assert.assertEquals(expected, dm2.get("helper"));
     }
 
     @Test
@@ -89,8 +91,8 @@ public class DashaMapTest {
     public void mapDeleteTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.put("help", 1);
-        dm2.delete("help");
+        dm2.put("helper", 1);
+        dm2.delete("helper");
 
         boolean assertEmpty = dm2.isEmpty();
 
@@ -125,9 +127,9 @@ public class DashaMapTest {
     public void mapSizeTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.put("help", 1);
+        dm2.put("helper", 1);
         dm2.put("hello", 2);
-        dm2.put("high", 3);
+        dm2.put("highest", 3);
         long expected = 3;
 
         Assert.assertEquals(expected, dm2.size());
@@ -162,9 +164,9 @@ public class DashaMapTest {
     public void mapBucketTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.put("help", 1);
+        dm2.put("helper", 1);
         dm2.put("hello", 2);
-        dm2.put("high", 3);
+        dm2.put("highest", 3);
 
         boolean expected = dm2.bucketSize("hello");
 
@@ -206,13 +208,13 @@ public class DashaMapTest {
     public void mapBucketCollisionTest2(){
         DashaMapTwo dm2 = new DashaMapTwo();
 
-        dm2.put("help", 1);
-        dm2.put("high", 2);
-        dm2.put("hop", 3);
+        dm2.put("helper", 1);
+        dm2.put("highest", 2);
+        dm2.put("hopper", 3);
 
-        boolean expected1 = dm2.bucketSize("help");
-        boolean expected2 = dm2.bucketSize("high");
-        boolean expected3 = dm2.bucketSize("hop");
+        boolean expected1 = dm2.bucketSize("helper");
+        boolean expected2 = dm2.bucketSize("highest");
+        boolean expected3 = dm2.bucketSize("hopper");
 
         Assert.assertTrue(expected1);
         Assert.assertTrue(expected2);

@@ -29,9 +29,9 @@ public class DashaMapOne implements HashMapX{
         }
     }
 
-        private int hash(String key) {
-        return Math.abs(key.hashCode() % SIZE);
-    }
+//        private int hash(String key) {
+//        return Math.abs(key.hashCode() % SIZE);
+//    }
 
     private String hashFunctionOne(String input) {
         if (input.length() > 0) {
