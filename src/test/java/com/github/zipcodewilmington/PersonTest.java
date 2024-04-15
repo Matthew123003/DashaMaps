@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.sample;
+package com.github.zipcodewilmington;
 
 import com.github.zipcodewilmington.sample.Person;
 import com.github.zipcodewilmington.sample.PersonInterface;
